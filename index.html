@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Boutique Aparments BA ofrece los mejores departamentos ubicados dentro de los barrios más destacados en Buenos Aires.">
+    <meta name="keywords" content="APARTS, SUITE, HOTEL, STUDIO, BOUTIQUE, RECOLETA, SAN TELMO, NEGOCIOS, TURISMO">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/miestilo1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
+    <title>Boutique Apartments Buenos Aires | Alojamientos rentables</title>
+    <link rel="icon" type="image/png" href="img/LOGOBA.png">
+</head>
+
+<body>
+    
+    <nav class="navPrincipal contenedor">
+        <ul>
+            <li><a href="index.html"><img src="img/LOGOBA.png" alt="LogoBoutique"></a></li>
+
+            <li><a href="index.html">BOOK</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+           
+        </ul>
+    </nav>
+
+    <main>
+        <!-- API clima -->
+        <div class="clima">
+            <div id="boton-ubicacion">
+                <button id="btn-clima" class="sombra" type="submit">Clima
+                    <img src="img/sun.png" alt="Sol">
+                </button>
+            </div>
+            <div id="contenedor-clima">
+               <h3 id="nombre-ciudad"></h3>
+               <p id="clima-ciudad"></p>
+               <p id="temperatura-ciudad"></p>
+            </div>
+        </div>
+
+        <!-- calendario -->
+        <div class="contenedor-book">
+            
+            <div class="calendario">
+                <div class="calendario__info">
+                    <div class="calendario__previo" id="mes-previo">&#8678;</div>
+                    <div class="calendario__mes" id="mes">Agosto</div>
+                    <div class="calendario__anio" id="anio">2021</div>
+                    <div class="calendario__siguiente" id="mes-siguiente">&#8680;</div>
+                </div>
+                <div class="calendario__semana">
+                    <div class="calendario__dia calendario__item">Domingo</div>
+                    <div class="calendario__dia calendario__item">Lunes</div>
+                    <div class="calendario__dia calendario__item">Martes</div>
+                    <div class="calendario__dia calendario__item">Miércoles</div>
+                    <div class="calendario__dia calendario__item">Jueves</div>
+                    <div class="calendario__dia calendario__item">Viernes</div>
+                    <div class="calendario__dia calendario__item">Sábado</div>
+                </div>
+                <div class="calendario__fechas" id="fechas"></div> <!--dias de la semana-->
+            </div>
+            
+        </div>
+        <!-- FIN calendario -->
+        
+        <!-- BTN desglose-->
+        <div class="container-principal-cards" class="sombra">
+            <h1 id="btn-desglose" class="sombra">Reservar habitaciones</h1>
+        </div>
+        <!-- Sección de compra del servicio -->
+        <div class="container">
+            <div class="row">
+                <!-- Elementos generados a partir del JSON -->
+                <main id="items" data-aos="zoom-in-up"></main>
+                <!-- Carrito -->
+                <aside id="desgloseReserva">
+                    <p>¡Reserva y comienza a programar tu estadía de descanso!</p>
+                    <h3>Detalle de la reserva</h3>
+                    <!-- Elementos del carrito -->
+                    <ul id="carrito" class="list-group"></ul>
+                    <hr>
+                    <!-- Precio total -->
+                    <p id="totalReservaFinal" class="text-right">Total: <span id="total"></span>&dollar;</p>
+                    <div class="botones">
+                        <button id="btn-volver" class="btn sombra">Volver</button>
+                        <button type="button" id="btn-reservar" class="btn boton-reservar sombra" data-bs-toggle="modal" data-bs-target="#miModal">Reservar</button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        
+        <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="modalTitle"><strong>¡Gracias por reservar!</strong></h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Recibirá por correo electrónico los detalles de la reserva con las instrucciones del check-in.</p>
+                        <p>Lo esperamos! Gracias por elegirnos</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn" type="" href="#miModal2" data-bs-toggle="modal" data-bs-target="#miModal2" data-bs-dismiss="modal">Ver protocolo Covid-19</a>
+                        <button id="btn-cerrar" type="button" class="btn btn-secondary sombra" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal 2 -->
+        
+        <div class="modal fade" id="miModal2" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="exampleModalLabel"><strong>Protocolo Covid-19</strong></h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Nos comprometemos a garantizar una estancia segura para todos nuestros huéspedes. Estos son los procedimientos que hemos introducido en Boutique Apartments</p>
+                        <br>
+                        <ul>
+                            <li>- Todos los miembros del equipo han recibido una amplia formación en protocolos de salud y seguridad específicos para gestionar las restricciones de COVID -19 y las mejores operaciones.</li>
+                            <br>
+                            <li>- Las estaciones de desinfección de manos están disponibles en toda la propiedad, así como unidades individuales en cada habitación del hotel.</li>
+                            <br>
+                            <li>- Todas las áreas de la propiedad son sólo por reserva, lo que garantiza que minimizamos los huéspedes adicionales en el sitio y nos permite saber exactamente quién está en el sitio en cualquier día y hora.</li>
+                            <br>
+                            <li>- El restaurante funciona con una capacidad reducida para garantizar un distanciamiento social adecuado. Todos los menús se imprimen en papel reciclado de un solo uso.</li>
+                            <br>
+                            <li>- El hotel funciona con horarios de llegada y salida escalonados en la medida de lo posible. Se han habilitado zonas adecuadas para que los huéspedes esperen y se ha establecido un registro de entrada y salida exprés.</li>
+                            <br>
+                            <li>- Los miembros del equipo están observando protocolos estrictos en lo que respecta a la desinfección y limpieza continuas de las zonas de recepción y reservas. Se han impuesto las transacciones sin contacto: todos los pagos deben realizarse con tarjeta de crédito.</li>
+                            <br>
+                            <li>- Hemos introducido procedimientos de limpieza reforzados para las habitaciones de los huéspedes, las áreas públicas, las áreas de back-office y la cocina del restaurante.</li>
+                            <br>
+                            <li>- Nos hemos comprometido a aumentar la frecuencia de la limpieza de las zonas públicas, los baños públicos, los estudios y las suites (incluidos los pomos de las puertas, los interruptores y los puntos de contacto).</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn sombra" href="#miModal" data-bs-toggle="modal" data-bs-dismiss="modal" role="button">Regresar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="contenedor-contacto">
+            <p class="contacto"><a href="mailto:reservations@boutiqueapartmentsba.com?">Reservations@BoutiqueApartmentsBA.com</a></p>
+            <p class="contacto"><a href="mailto:info@boutiqueapartmentsba.com?">Info@BoutiqueApartmentsBA.com</a></p>
+
+            <!-- ICONOS -->
+            <section class="footer__icono">
+                <p class="contacto">Encontranos en
+                    <a href="https://www.instagram.com/boutiqueapartmentsba/">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#BA55D3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <rect x="4" y="4" width="16" height="16" rx="4" />
+                            <circle cx="12" cy="12" r="3" />
+                            <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/boutiqueapartmentsba-106393718293174">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6495ED" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+                        </svg>
+                    </a>
+                </p>
+            </section>
+            <!-- FIN ICONOS -->
+        </div>
+
+        <ul class="footer__nav">
+            <li><a href="https://www.airbnb.com.ar/users/278440549/listings?_set_bev_on_new_domain=1619617254_MzNkNmM4YmVhNzc0">Airbnb</a></li>
+            <li><a href="https://hotels.cloudbeds.com/reservation/rMzAk0">CloudBeds</a></li>
+        </ul>
+
+        <p class="footer__texto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-registered" width="12" height="12" viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <circle cx="12" cy="12" r="9" />
+                <path d="M9 16v-8h4a2 2 0 0 1 0 4h-4m3 0l3 4" />
+            </svg>
+             Boutique Apartments BA. Derechos reservados | 2021
+        </p>
+        
+        <div class="metodos-de-pago">
+            <img src="img/visa.png" alt="VISA">
+            <img src="img/american-express.png" alt="AMEX">
+            <img src="img/paypal.png" alt="PayPal">
+        </div>
+        
+    </footer>
+
+    <script src="scripts/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="scripts/calendar.js"></script>
+    <script src="scripts/card.js"></script>
+
+    <script>AOS.init();</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+
+   
+</body>
+</html>

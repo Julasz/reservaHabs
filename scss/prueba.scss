@@ -1,0 +1,1082 @@
+$principal: #ca9e64;
+$titulo: #8B4513;
+$grisOscuro: rgb(109, 108, 108);
+$fondoPagina: #fdf9f2;
+$fuente: 'Barlow Condensed', sans-serif;
+
+// GLOBALES
+
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 16px;
+    font-family: $fuente;
+
+    position: relative;
+}
+main{
+    background-color: $fondoPagina;
+}
+footer{
+    background: linear-gradient(to bottom, white, $fondoPagina);
+} 
+
+.contenedor{
+    width: 120rem;
+    margin: 0 auto;
+}
+
+hr{
+    margin: 0;
+}
+
+
+// TIPOGRAFÍA
+
+@mixin titulo( $tamanioLetra , $espacioRelleno){
+    color: $principal;
+    font-style: italic;
+    font-weight: normal;
+    font-size: $tamanioLetra;
+    padding: $espacioRelleno;
+}
+h1{
+    @include titulo( 8rem , 5rem )
+    
+}
+.descripcion{
+    font-style: italic;
+}
+p, .lista-servicios{
+    font-size: 2rem;
+    text-align: center;
+    line-height: 2;
+    margin: 0;
+    padding: 3rem 6rem;
+    letter-spacing: 2px;
+    font-weight: normal;
+}
+h1, p, .footer{
+    text-align: center;
+}
+// ERROR 404
+
+#error404{
+
+    background-color: $principal;
+    width: 100%;
+    height: 60rem;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    .contenedor-404{
+        background-color: $fondoPagina;
+        width: 70rem;
+        height: 35rem;
+        border-radius: .5rem;
+
+        h2, p{
+            text-align: center;
+        }
+        h2{
+            a{
+                color: $titulo;
+                text-decoration: none;
+
+            }
+        }
+        .boton-volver{
+            font-size: 2rem;
+        }
+    }
+}
+//BOOK
+.contenedor-book{
+    padding: 3rem 0;
+
+    width: 100%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+.calendario{
+    background-color: $principal;
+    border-radius: 3px;
+    width: 40%;
+    max-width: 100%;
+
+    padding: 1.5rem;
+}
+.calendario__info{
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+.calendario__previo, .calendario__siguiente{
+    cursor: pointer;
+    font-size: 2.5rem;
+}
+.calendario__previo{
+    margin-right: auto;
+}
+.calendario__siguiente{
+    margin-left: auto;
+}
+.calendario__semana, .calendario__fechas{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.calendario__mes{
+    padding: 0 1rem;
+}
+.calendario__item, .calendario__fechas{
+    text-align: center;
+    line-height: 2;
+}
+.calendario__fechas{
+    padding-left: 2rem;
+}
+.hoy{
+    color: white;
+    width: 50%;
+}
+.ultimosDias{
+    opacity: .5;
+}
+
+
+// LINKS - NAVEGADORES
+@mixin navegador( $ancho , $tamanioLetra , $separacionLetra) {
+    width: $ancho;
+    font-size: $tamanioLetra;
+    letter-spacing: $separacionLetra;
+}
+.navPrincipal{
+    @include navegador( 100% , 2.5rem , 5px );
+
+    padding: 1rem;
+    position: static;
+    top: 0px;
+    background-color: white;
+    opacity: .90;
+
+    ul{
+        display: flex;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+
+        li{
+            padding: 0 2rem;
+        }
+    }
+    a:hover{
+        font-size: 2.7rem;
+    }
+}
+
+li{
+    list-style: none;
+    justify-content: space-between;
+    height: 20%;
+    a{
+        text-decoration: none;
+        cursor: pointer;
+    }
+    a:active, a:hover{
+        font-weight: bold;
+    }
+    a:link, a:visited{
+        color: $principal;
+    }
+}
+
+// FOTOS DE HABITACIONES
+
+.cardContenedor{
+    padding: 16px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.card{
+    flex-direction: row;
+    background-color: $fondoPagina;
+}
+
+
+// CARDS PARA RESERVAS CON JS
+.clima{
+    display: grid;
+    justify-items: end;
+    align-items: center;
+    padding: 2rem;
+    background-color: $fondoPagina;
+
+    margin-top: 1rem;
+    
+    border-radius: 15px;
+    
+
+    #boton-ubicacion{
+        #btn-clima{
+            font-size: 2rem;
+            padding: .5rem 1rem;
+            border-radius: 4px;
+            border-color: $fondoPagina;
+            background-color: $fondoPagina;
+
+            img{
+                width: 30px;
+            }
+        }
+
+        
+    }
+    #contenedor-clima{
+        h3{
+            padding: 1rem 1rem 0 1rem;
+            font-size: 3rem;
+
+        }
+        p{
+            padding: 0;
+        }
+    }
+}
+
+//cards de habitaciones para reservar
+.row{
+    justify-content: center;
+    padding: 3rem 0;
+    
+    #items{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5rem;
+
+        .card{
+            grid-template-columns: 1fr;
+
+            h2{
+                padding: 2.5rem;
+            }
+            p{
+                width: 70%;
+                margin: 0 auto;
+            }
+        }
+        .btn1{
+            font-size: 2.1rem;
+            width: 80%;
+            margin: 2rem auto;
+            letter-spacing: 3px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .btn1:hover{
+            width: 81%;
+            font-size: 2.3rem;
+        }
+    }
+    .card:nth-child(6){
+        grid-column-start: 2;
+        grid-row-start: 2;
+        width: 50%;
+        margin: 0 auto;
+    }
+    aside{
+        width: 60%;
+        padding: 4rem;
+        margin: 5rem;
+
+        p{
+            
+            padding: 2rem;
+        }
+        h3, ul{
+            margin: 0 auto;
+            font-size: 2.8rem;
+        }
+        h3{
+            width: 27%;
+            margin-bottom: 3rem;
+           
+        }
+        hr{
+            margin-top: 3rem;
+        }
+        ul{
+            width: 40%;
+            padding: 3rem auto;
+        }
+
+        #carrito{
+            width: 50%;
+
+            .rellenoCarrito{
+            font-size: 2rem;
+            margin: 0 auto;
+            padding: .5rem 2rem;
+            }
+        }
+    }
+    
+    .boton-reservar, #btn-volver{
+        font-size: 2rem;
+        color: $fondoPagina;
+        background-color: $principal;
+        border-radius: 2px;
+        border-color: $principal;
+        padding: .5rem;
+        margin: .5rem;
+        width: 10rem;
+        height: 4rem;
+    }
+    .boton-reservar:hover, .boton-reservar:active, .boton-reservar:visited,
+    #btn-volver:hover, #btn-volver:active, #btn-volver:visited{
+        font-size: 2.2rem;
+        border-color: $principal;
+        background-color: $principal;
+        width: 10.5rem;
+        height: 4.5rem;
+    }
+}
+
+.container-principal-cards{
+    margin-top: 3rem;
+    display: grid;
+    justify-items: center;
+
+    #btn-desglose{
+        background-color: white;
+        border-color: $fondoPagina;
+        box-shadow: 0px 0px 10px 1px #999;
+        padding: 1rem;
+        font-size: 4rem;
+        font-style: normal;
+    
+        h1{
+            padding: 2rem;
+            font-size: 3rem;
+            font-style: normal;
+        }
+    }
+}
+
+// FORMULARIO CONCTACT US
+
+h2{
+    color: #8B4513;
+    text-align: center;
+    font-size: 3rem;
+    padding: 5rem;
+    font-weight: bold;
+}
+.sombra{
+    box-shadow: 0px 0px 10px 1px #999
+}
+.fondo-servicios{
+    background-image: url(../img/ST10fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+
+    .formulario{
+    margin: 0 auto;
+    padding: 10rem 0;
+
+
+    fieldset{
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        border: none;
+        border-radius: 1rem;
+    }
+    legend{
+        text-align: center;
+        color: $principal;
+        font-size: 3rem;
+        font-weight: bold;
+        padding-top: 4rem;
+        margin-bottom: 2rem;
+    }
+    .boton{
+        display: inline;
+        padding: 1rem;
+        font-size: 1.8rem;
+        text-decoration: none;
+        border-radius: .5rem;
+    
+        color: $titulo;
+        background-color: #faf3e7;
+    
+        margin: 0 1rem 3rem 0;
+        border: none;
+        cursor: pointer;
+    }
+    }
+}
+
+.contenidoCampos{
+    align-items: center;
+    padding: 3rem;
+
+    
+    label{
+        color: $titulo;
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 1rem 0;
+        padding-right: 2rem;
+        display: block;
+    }
+    .control {
+        margin-bottom: 10px;
+        padding-bottom: 20px;
+        position: relative;
+    }
+
+    .control input {
+        border: 2px solid #f0f0f0;
+        border-radius: 4px;
+        display: block;
+        font-family: inherit;
+        font-size: 14px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .control input:focus {
+        outline: 0;
+        border-color: #777;
+    }
+
+    .control.error input {
+        border-color: #e74c3c;
+    }
+
+    .control small {
+        color: #e74c3c;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        visibility: hidden;
+    }
+
+    .control.error small {
+        visibility: visible;
+    }
+}
+
+.tablaReserva{
+    background-color: $fondoPagina;
+    width: 100%;
+    height: 30rem;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    th{
+        font-size: 2rem;
+        padding: 1rem;
+    }
+}
+
+/* fin de formulario para validacion */
+
+
+
+.fechas{
+    display: inline;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+.campo{
+    margin-bottom: 1.5rem;
+
+    .input-text{
+
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 1.5rem;
+        border: none;
+        background-color: rgb(240, 240, 240);
+        padding: 1.5rem;
+        border-radius: .5rem;
+    
+        display: inline;
+
+        width: 100%;
+        height: 100%;
+
+
+        
+    }
+    .input-text:focus{
+        border-color: $principal;
+        font-size: 1.8rem;
+    }
+}
+
+.campo-fechas{
+    display: flex;
+
+    label{
+        color: $titulo;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+        display: block;
+
+    }
+    
+}
+// FOOTER
+
+.footer__nav, .footer__icono{
+    justify-content: left;
+
+}
+.footer__nav{
+    list-style:none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    height: 20%;
+    a:hover{
+        font-size: 2rem;
+    }
+    li{
+    font-size: 1.8rem;
+    list-style-type: unset;
+    padding: 1rem 1rem 0 1rem;
+
+    letter-spacing: 1.5px;
+
+    }
+}
+.footer__texto{
+    color: $grisOscuro;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 0;
+}
+
+.footer__icono{
+    display: inline;
+    justify-content: left;
+
+}
+.contacto{
+    text-decoration: none;
+    font-size: 1.8rem;
+    text-align: left;
+    padding: 0 2rem;
+    color: $principal;
+
+    a{
+    color: $principal;
+    cursor: pointer;
+    text-decoration: none;
+    }
+    a:hover{
+        color: $principal;
+        font-weight: bold;
+        font-size: 1.9rem;
+    }
+    svg:hover{
+        width: 35px;
+        height: 35px;
+    }
+}
+.contenedor-contacto{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-top: 2rem;
+
+    p{
+        font-size: 3rem;
+    }
+}
+
+.metodos-de-pago{
+    display: flex;
+    justify-content: center;
+    img{
+       padding: 0 5rem;
+    }
+}
+
+
+
+// MEDIA QUERIES
+
+// xs celulares -600px
+@media only screen and (max-width: 600px){
+    //principal
+    
+    #error404{
+        width: 100%;
+        height: 60rem;
+    
+        .contenedor-404{
+            width: 60rem;
+            height: 45rem;
+        }
+    }
+    .navPrincipal{
+        position: static;
+    }
+    h1{
+        padding: 8rem 5rem 3rem 5rem;
+        font-size: 5.4rem;
+    }
+    p{
+        padding: 3rem;
+        font-size: 2rem;
+    }
+    ul, .iconos{
+        font-size: 2rem;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+
+        gap: .5rem;
+
+    }
+    .contenedor-secundario{
+        p{
+            padding-bottom: 2rem;
+        }
+    }
+    .contenedor-secundario, .contenedor-terciario{
+        padding: 3rem 0;
+    }
+    //btn clima
+    .clima{
+        justify-items: center;
+        padding: 3rem;
+        margin-left: 2rem;
+    }
+    //calendario
+    .contenedor-book{
+        .calendario{
+            padding: 0;
+            width: 80%;
+        }
+    }
+    .btn{
+        font-size: 2rem;
+    }
+    //cards del carrito
+    .container{
+        #items{
+            display: grid;
+            grid-template-columns: 1fr;
+            
+            p{
+                padding: 0;
+            }
+        }
+        aside{
+            width: 90%;
+            margin: 0 auto;
+
+            h3{
+                width: 52%;
+                margin: 1rem auto;
+
+            }
+            .botones{
+                margin-left: 7.5rem;
+            }
+            #carrito{
+                width: 80%;
+                margin-bottom: 4rem;
+
+                .rellenoCarrito{
+                    margin: .5rem auto;
+                }
+            }
+        }
+    }
+    footer{
+        .contenedor-contacto{
+            align-items: center;
+            padding: 1rem 0;
+            p{
+            text-align: center;
+            font-size: 1.5rem;
+            }
+        }
+        .footer__icono{
+            flex-direction: row;
+            justify-content: center;
+
+        }
+        .footer__texto{
+            padding: 1rem;
+        }
+        .footer__nav{
+            justify-content: center;
+            li{
+            padding: 0 1rem;
+            }
+            a{
+            font-size: 1.5rem;
+            }
+        }
+        .metodos-de-pago{
+            display: flex;
+            justify-content: center;
+            img{
+               padding: 0 2rem;
+            }
+        }
+    }
+    .card{
+        display: block;
+        justify-content: center;
+    }
+    // formulario
+    .formulario{
+        width: 90%;
+
+        .boton{
+        width: 100%;
+        font-weight: bold;
+        }
+        
+        
+    }
+    
+}
+// s tablet +601px
+@media only screen and (min-width: 601px){
+    
+    .navPrincipal{
+        position: static;
+        li{
+            font-size: 2rem;
+        }
+    }
+    .contenedor-secundario{
+        padding: 0 4rem;
+        
+        p{
+            padding-bottom: 4rem;
+        }
+        
+    }
+    .contenedor-terciario{
+        padding: 0 1rem 10rem 1rem;
+    }
+    h1{
+        font-size: 6rem;
+    }
+    p{
+        padding: 0;
+        font-size: 2rem;
+    }
+    .navPrincipal a:hover, .btn:hover{
+        font-size: 2.1rem;
+    }
+    ul, .btn{
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+    .card{
+        display: block;
+        justify-content: center;
+    }
+    
+
+    //formulario
+    .formulario{
+        width: 80%;
+        padding: 0;
+        .boton{
+            font-weight: bold;
+            width: 100%;
+        }
+    }
+    //btn clima
+    .clima{
+        justify-items: center;
+        padding: 3rem;
+        margin-left: 2rem;
+    }
+    //calendario
+    .contenedor-book{
+        .calendario{
+            padding: 0;
+            width: 80%;
+        }
+    }
+    
+    //cards del carrito
+    .container{
+        #items{
+            display: grid;
+            grid-template-columns: 1fr;
+            
+            p{
+                padding: 0;
+            }
+        }
+        aside{
+            width: 90%;
+            margin: 0 auto;
+
+            h3{
+                width: 52%;
+                margin: 1rem auto;
+
+
+            }
+            .botones{
+                margin-left: 9rem;
+            }
+            #carrito{
+                width: 80%;
+                margin-bottom: 4rem;
+
+                .rellenoCarrito{
+                    margin: .5rem auto;
+                }
+            }
+        }
+    }
+
+    //footer
+    footer{
+        .contenedor-contacto{
+            align-items: center;
+            padding: 1rem 0;
+            p{
+            text-align: center;
+            font-size: 1.8rem;
+            }
+        }
+        .footer__icono, .footer__nav{
+            flex-direction: row;
+            justify-content: center;
+    
+        }
+        
+        .footer__texto{
+            text-align: center;
+        }
+        .footer__nav{
+            li{
+            padding: 1rem;
+            }
+            a{
+            font-size: 1.8rem;
+            }
+        }
+    }
+}
+// tablet landscape +768px
+@media only screen and (min-width: 768px){
+    .contenedor-secundario{
+        padding: 0 3rem;
+        p{
+            padding-bottom: 6rem;
+        }
+    }
+    .contenedor-terciario{
+        width: 100%;
+        padding-bottom: 10rem;
+    }
+    h1{
+        font-size:8rem;
+    }
+    
+    ul, .btn{
+        font-size: 2rem;
+    }
+    .navPrincipal a:hover, .btn:hover{
+        font-size: 2.5rem;
+    }
+    .card{
+        width: 90%;
+        margin: auto;
+    }
+    
+    //formulario
+    .formulario{
+        width: 90%;
+
+        .boton{
+        width: 100%;
+        font-weight: bold;
+        }
+    }
+
+    //btn clima
+    .clima{
+        justify-items: end;
+        padding: 3rem;
+    }
+    //calendario
+    .contenedor-book{
+        .calendario{
+            padding: 0;
+            width: 60%;
+        }
+    }
+    //cards del carrito
+    .container{
+        #items{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            
+            p{
+                padding: 0;
+            }
+        }
+        aside{
+
+            h3{
+                width: 34%;
+                margin: 0 auto;
+                margin-bottom: 3rem;
+
+            }
+            .botones{
+                margin-left: 18rem;
+            }
+
+            #carrito{
+                width: 60%;
+                margin-bottom: 4rem;
+
+                .rellenoCarrito{
+                    margin: .5rem auto;
+                }
+            }
+        }
+    }
+
+    //footer
+    footer{
+        .contenedor-contacto{
+            align-items: flex-start;
+            padding: 1rem 0;
+            p{
+            text-align: center;
+            font-size: 1.8rem;
+            }
+        }
+    }
+}
+// web +992px +1200px
+@media only screen and (min-width: 992px){
+    .navPrincipal{
+        position: static;
+    }
+    .contenedor-secundario{
+        padding: 0 10rem;
+        margin: 0;
+        width: 100%;
+    }
+    .contenedor-terciario{
+        padding: 2rem 5rem 10rem 5rem;
+    }
+    .card{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+    }
+    //formulario
+    .formulario{
+        width: 65rem;
+        .boton{
+            width: 15%;
+            font-weight: bold;
+        }
+    }
+    //detalle de reserva
+    .container{
+        aside{
+
+        h3{
+            width: 25%;
+            margin-bottom: 3rem;
+
+        }
+        .botones{
+            margin-left: 18rem;
+        }
+        }
+    }
+}
+@media only screen and (min-width: 1200px){
+    .navPrincipal{
+        position: static;
+    }
+    .contenedor-secundario{
+        padding: 0 13rem;
+    
+        p{
+            padding-bottom: 5rem;
+        }
+    }
+    .contenedor-terciario{
+        padding: 0 13rem 10rem 13rem;
+    }
+    .card{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        width: 100%;
+        margin: 0;
+    }
+    //formulario
+    .formulario{
+        width: 65rem;
+        .boton{
+            width: 15%;
+            font-weight: bold;
+        }
+    }
+
+    //calendario
+    .contenedor-book{
+        .calendario{
+            padding: 0;
+            width: 40%;
+        }
+    }
+
+    .container{
+        aside{
+
+            h3{
+                width: 18%;
+                margin-bottom: 3rem;
+
+            }
+        }
+    }
+    
+}
