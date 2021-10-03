@@ -198,37 +198,6 @@ window.onload = function () {
   calcularTotal();
   renderizarCarrito();
 
-  //si no hay compra, devuelve otro mensaje-modal
-  function noReserva (){
-    let reservaFinal = document.getElementById('#totalReservaFinal');
-
-    if (reservaFinal === 0){
-
-        btnReservar.addEventListener('click', function(){
-            document.createElement(`
-                <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true" data-bs-backdrop="static">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 class="modal-title" id="modalTitle"><strong>¡Ops!</strong></h3>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p>¡Reserva sin completar!</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary sombra" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `)
-        })
-      
-    } 
-  }
-
-  noReserva();
 }
 
 // api clima
