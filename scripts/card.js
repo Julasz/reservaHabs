@@ -45,6 +45,7 @@ window.onload = function () {
   const miCarrito = document.querySelector('#carrito');
   const totalAll = document.querySelector('#total');
   const btnVolver = document.querySelector('#btn-volver');
+  const btnCerrar = document.querySelector('#btnCerrar')
   const btnReservar = document.querySelector('#btn-reservar'); //activar con modal
   const miLocalStorage = window.localStorage;
 
@@ -189,6 +190,7 @@ window.onload = function () {
 
   // Eventos
   btnVolver.addEventListener('click', vaciarCarrito);
+  btnCerrar.addEventListener('click', vaciarCarrito);
 
   // Inicio
   cargarCarritoDeLocalStorage();
